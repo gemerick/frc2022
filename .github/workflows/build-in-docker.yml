@@ -1,0 +1,32 @@
+name: Build in docker
+
+on:
+  push:
+    branches:
+      main
+
+env:
+  test: value
+
+jobs:  
+  container:
+    runs-on: ubuntu-latest
+    container:
+      # image: 'ubuntu:20.04' # can also use this to test
+      image: 'ghcr.io/gemerick/frc-docker:main'
+      credentials:
+         username: ${{ github.ref }}
+         password: ${{ secrets.GITHUB_TOKEN }}
+      env: 
+        actor: ${{ github.actor }}
+        testjob: here is value
+
+    steps:
+    - uses: actions/checkout@main
+
+    - name: Ensure gradle executes
+      run: chmod 755 gradlew
+
+    - name: Build
+      run: ./gradlew build
+      

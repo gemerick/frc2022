@@ -31,3 +31,8 @@ jobs:
     - name: Build
       run: ./gradlew build
 
+    - name: Save Package
+      uses: actions/upload-artifact@v3
+      with:
+        name: Package
+        path: build/libs

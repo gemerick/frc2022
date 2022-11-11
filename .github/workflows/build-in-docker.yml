@@ -14,7 +14,7 @@ jobs:
     container:
       # image: 'ubuntu:20.04' # can also use this to test
 #       image: 'ghcr.io/gemerick/frc-docker:main'
-        image: 'wpilib/roborio-cross-ubuntu:2022-18.04'
+      image: 'wpilib/roborio-cross-ubuntu:2022-18.04'
       credentials:
          username: ${{ github.ref }}
          password: ${{ secrets.GITHUB_TOKEN }}

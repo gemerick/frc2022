@@ -34,5 +34,5 @@ jobs:
     - name: Save Package
       uses: actions/upload-artifact@v3
       with:
-        name: Package
-        path: build/libs
+        name: frc2022.jar
+        path: build/libs/frc2022.jar
